@@ -85,7 +85,7 @@ public void restart(){
     }
 
     public void addView (View V) {//logout button
-        Intent intent= new Intent(this, add_form.class);
+        Intent intent= new Intent(this, ScrollAdd.class);
 
         startActivity(intent);
     }
