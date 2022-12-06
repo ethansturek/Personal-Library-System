@@ -13,10 +13,7 @@ public class BookInfo {
     private String publishedDate;
     private String description;
     private int pageCount;
-    private String thumbnail;
-    private String previewLink;
-    private String infoLink;
-    private String buyLink;
+   private ArrayList<String> genre;
 
     // creating getter and setter methods
     public String getTitle() {
@@ -75,42 +72,18 @@ public class BookInfo {
         this.pageCount = pageCount;
     }
 
-    public String getThumbnail() {
-        return thumbnail;
+    public ArrayList<String> getGenre() {
+        return genre;
     }
 
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setGenre(ArrayList<String> genre) {
+        this.genre = genre;
     }
 
-    public String getPreviewLink() {
-        return previewLink;
-    }
-
-    public void setPreviewLink(String previewLink) {
-        this.previewLink = previewLink;
-    }
-
-    public String getInfoLink() {
-        return infoLink;
-    }
-
-    public void setInfoLink(String infoLink) {
-        this.infoLink = infoLink;
-    }
-
-    public String getBuyLink() {
-        return buyLink;
-    }
-
-    public void setBuyLink(String buyLink) {
-        this.buyLink = buyLink;
-    }
 
     // creating a constructor class for our BookInfo
     public BookInfo(String title, String subtitle, ArrayList<String> authors, String publisher,
-                    String publishedDate, String description, int pageCount, String thumbnail,
-                    String previewLink, String infoLink, String buyLink) {
+                    String publishedDate, String description, int pageCount, ArrayList<String> genre) {
         this.title = title;
         this.subtitle = subtitle;
         this.authors = authors;
@@ -118,9 +91,7 @@ public class BookInfo {
         this.publishedDate = publishedDate;
         this.description = description;
         this.pageCount = pageCount;
-        this.thumbnail = thumbnail;
-        this.previewLink = previewLink;
-        this.infoLink = infoLink;
-        this.buyLink = buyLink;
+        this.genre = genre;
+
     }
 }

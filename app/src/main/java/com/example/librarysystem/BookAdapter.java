@@ -43,12 +43,12 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         // setting ou data to each UI component.
         BookInfo bookInfo = bookInfoArrayList.get(position);
         holder.nameTV.setText(bookInfo.getTitle());
-        holder.publisherTV.setText(bookInfo.getPublisher());
+        holder.publisherTV.setText(bookInfo.getAuthors().toString());
         holder.pageCountTV.setText("No of Pages : " + bookInfo.getPageCount());
         holder.dateTV.setText(bookInfo.getPublishedDate());
 
         // below line is use to set image from URL in our image view.
-        Picasso.get().load(bookInfo.getThumbnail()).into(holder.bookIV);
+
 
         // below line is use to add on click listener for our item of recycler view.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -58,16 +58,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 // and passing all the data of that item in next intent.
                 Intent i = new Intent(mcontext, BookDetails.class);
                 i.putExtra("title", bookInfo.getTitle());
-                i.putExtra("subtitle", bookInfo.getSubtitle());
-                i.putExtra("authors", bookInfo.getAuthors());
+                i.putExtra("authors", bookInfo.getAuthors().get(0));
                 i.putExtra("publisher", bookInfo.getPublisher());
                 i.putExtra("publishedDate", bookInfo.getPublishedDate());
                 i.putExtra("description", bookInfo.getDescription());
                 i.putExtra("pageCount", bookInfo.getPageCount());
-                i.putExtra("thumbnail", bookInfo.getThumbnail());
-                i.putExtra("previewLink", bookInfo.getPreviewLink());
-                i.putExtra("infoLink", bookInfo.getInfoLink());
-                i.putExtra("buyLink", bookInfo.getBuyLink());
+                i.putExtra("genre", bookInfo.getGenre().get(0));
+
 
                 // after passing that data we are
                 // starting our new intent.
@@ -95,7 +92,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             publisherTV = itemView.findViewById(R.id.idTVpublisher);
             pageCountTV = itemView.findViewById(R.id.idTVPageCount);
             dateTV = itemView.findViewById(R.id.idTVDate);
-            bookIV = itemView.findViewById(R.id.idIVbook);
+
         }
     }
 }

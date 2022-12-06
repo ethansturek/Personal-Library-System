@@ -35,6 +35,7 @@ public class ScrollAdd extends AppCompatActivity {
     private ProgressBar progressBar;
     private EditText searchEdt;
     private Button searchBtn;
+    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,22 +105,23 @@ public class ScrollAdd extends AppCompatActivity {
                         String publishedDate = volumeObj.optString("publishedDate");
                         String description = volumeObj.optString("description");
                         int pageCount = volumeObj.optInt("pageCount");
-                        JSONObject imageLinks = volumeObj.optJSONObject("imageLinks");
-                        //String thumbnail = "https://books.google.com/books/content?id=psvaDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api";
-                        String thumbnail = imageLinks.optString("thumbnail");
-                        String previewLink = volumeObj.optString("previewLink");
-                        String infoLink = volumeObj.optString("infoLink");
-                        JSONObject saleInfoObj = itemsObj.optJSONObject("saleInfo");
-                        String buyLink = saleInfoObj.optString("buyLink");
+                        JSONArray genreobj = volumeObj.getJSONArray("categories");
+
                         ArrayList<String> authorsArrayList = new ArrayList<>();
                         if (authorsArray.length() != 0) {
                             for (int j = 0; j < authorsArray.length(); j++) {
                                 authorsArrayList.add(authorsArray.optString(i));
                             }
                         }
+                        ArrayList<String> genreobjarray = new ArrayList<>();
+                        if (genreobj.length() != 0) {
+                            for (int j = 0; j < genreobj.length(); j++) {
+                                genreobjarray.add(genreobj.optString(i));
+                            }
+                        }
                         // after extracting all the data we are
                         // saving this data in our modal class.
-                        BookInfo bookInfo = new BookInfo(title, subtitle, authorsArrayList, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink, buyLink);
+                        BookInfo bookInfo = new BookInfo(title, subtitle, authorsArrayList, publisher, publishedDate, description, pageCount, genreobjarray);
 
                         // below line is use to pass our modal
                         // class in our array list.
@@ -132,7 +134,7 @@ public class ScrollAdd extends AppCompatActivity {
                         // below line is use to add linear layout
                         // manager for our recycler view.
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ScrollAdd.this, RecyclerView.VERTICAL, false);
-                        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.idRVBooks);
+                        mRecyclerView = (RecyclerView) findViewById(R.id.idRVBooks);
 
                         // in below line we are setting layout manager and
                         // adapter to our recycler view.

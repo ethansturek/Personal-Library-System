@@ -12,18 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/idIVbook"
-            android:layout_width="130dp"
-            android:layout_height="160dp"
-            android:layout_margin="10dp" />
-
         <TextView
             android:id="@+id/idTVBookTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/idIVbook"
+
             android:padding="3dp"
             android:text="Book Title"
             android:textColor="@color/black"
@@ -35,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/idTVBookTitle"
             android:layout_marginTop="3dp"
-            android:layout_toEndOf="@id/idIVbook"
+
             android:padding="3dp"
             android:text="Publisher"
             android:textColor="@color/black"
@@ -47,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/idTVpublisher"
             android:layout_marginTop="3dp"
-            android:layout_toEndOf="@id/idIVbook"
+
             android:padding="3dp"
             android:text="Page count"
             android:textColor="@color/black"
