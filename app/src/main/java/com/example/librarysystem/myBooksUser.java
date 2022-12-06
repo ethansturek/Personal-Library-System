@@ -64,23 +64,12 @@ public class myBooksUser extends AppCompatActivity {
                     }
                 });
 
-                Button checkout=new Button(this);//creating checkout Buttons
-                checkout.setTag(fill);
-                checkout.setText("Return");
-                checkout.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        fill.checkedOut=false;//change value if button is pressed
-                        fill.inPos = null;
-                        //update the file so it contains the book as checked out
-                        BookList lOB = new BookList(listOfBooksUserView);
-                        lOB.writeToFile(lOB,getApplicationContext());
-                        restart();
-                    }
-                });
+
+
+
 
                 row.addView(titleView);//adding both bits to table
-                row.addView(checkout);
+
                 row.addView(report);
 
                 displayBooksUserView.addView(row);

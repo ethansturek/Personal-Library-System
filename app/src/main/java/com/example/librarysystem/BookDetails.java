@@ -3,6 +3,8 @@ package com.example.librarysystem;
 import static com.example.librarysystem.login.lOB;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 import com.squareup.picasso.Picasso;
 
@@ -69,13 +75,24 @@ public class BookDetails extends AppCompatActivity {
 
     }
 
-    public void add(View view){
+    public void add(View view) throws WriterException {
         lOB.read(getApplicationContext());
         ArrayList<Book> list = lOB.getBookList();
+        String code = login.id + ", " + title + ", " +subtitle +", " + genre;
+
         list.add(new Book(login.id, title, subtitle, genre, description));
         lOB = new BookList(list);
         lOB.writeToFile(lOB, getApplicationContext());
         DynamicToast.makeSuccess(getApplicationContext(), title + " has been added").show();
+    restart();
+    }
+    public void restart(){
+        Intent intent = new Intent(this, ManageBooks.class);
+        startActivity(intent); // start same activity
+        finish(); // destroy older activity
+        overridePendingTransition(0, 0);
+
 
     }
+
 }

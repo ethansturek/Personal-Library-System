@@ -6,10 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 
 import java.util.ArrayList;
@@ -33,7 +40,7 @@ public class add_form extends AppCompatActivity {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
-    public void addBook (View view){
+    public void addBook (View view) throws WriterException {
         titleText = (EditText) findViewById(R.id.titleField);
         authorText = (EditText) findViewById(R.id.authorField);
         genreText = (EditText) findViewById(R.id.genreField);
@@ -59,6 +66,8 @@ public class add_form extends AppCompatActivity {
         else {
         lOB.read(getApplicationContext());
         list = lOB.getBookList();
+        String code = login.id + ", " + title + ", " + author +", " + genre;
+
         list.add(new Book(login.id, title, author, genre, description));
         lOB = new BookList(list);
     lOB.writeToFile(lOB, getApplicationContext());
@@ -78,9 +87,10 @@ public class add_form extends AppCompatActivity {
     }
 
     public void back (View view) {
-        Intent intent= new Intent(this, ManageBooks.class);
+        Intent intent= new Intent(this, ScrollAdd.class);
         startActivity(intent);
 
     }
+
 
 }

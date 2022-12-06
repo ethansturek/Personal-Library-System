@@ -1,5 +1,7 @@
 package com.example.librarysystem;
 
+import android.graphics.Bitmap;
+
 import java.io.Serializable;
 
 //Creates a book object that holds title, author, genre, id, and checked out status
@@ -7,6 +9,7 @@ public class Book implements Serializable {
     int id;
     String title, author, genre, description, inPos;
     boolean checkedOut;
+    Bitmap qr;
 
     public Book() {
     id = login.id;
@@ -17,6 +20,7 @@ public class Book implements Serializable {
     checkedOut = false;
     inPos = null;
     login.id++;
+
     }
 
     public Book(int id, String title, String author, String genre, String description) {
@@ -29,6 +33,7 @@ public class Book implements Serializable {
         checkedOut = false;
         inPos = null;
         login.id++;
+
     }
 
 }

@@ -1,5 +1,6 @@
 package com.example.librarysystem;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -64,6 +65,10 @@ public class ScrollAdd extends AppCompatActivity {
                 getBooksInfo(searchEdt.getText().toString());
             }
         });
+    }
+    public void add(View v){
+        Intent intent= new Intent(this, add_form.class);
+        startActivity(intent);
     }
 
     private void getBooksInfo(String query) {

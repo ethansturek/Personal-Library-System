@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+
 import java.util.ArrayList;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
@@ -26,6 +28,7 @@ public class AdminMain extends AppCompatActivity {
 
 
     public void returns(View v){//button to open up returns
+
         Intent intent= new Intent(this, returns.class);
         startActivity(intent);
     }
@@ -42,4 +45,5 @@ public class AdminMain extends AppCompatActivity {
         Intent intent=new Intent (this, Report.class);
         startActivity(intent);
     }
+
 }
