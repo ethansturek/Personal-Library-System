@@ -73,3 +73,21 @@ The library app will allow users and staff to interact with the library’s inve
 Admin can now add books faster by searching for books using Google books api. Admins search through a list of books based on their search query and add it to the local storage of books. If no results appear, Admins can still manually add books
 - ### ZXing Android Embedded
 Admins can now scan qr codes that returns the attached book name. QR codes would be physically on books and act as a way to track a books physical location. This is intended for admins to confirm a book has been returned and makes the book available again to other users.
+## **Class Organization**
+All classes function as activities within the android studio project. We have additional objects used to store data including: Book (stores book info), Booklist (A list of current books), ReportObj (Reported damage), ReportList (List of reports), Account (Stores login info for user) and AccountList (List of all accounts). With the addition of APIs, the JSON Objects Package contains new Object classes Books, Lists, and Results, NYTBestSellersBook is also an object class and NYTBestSellersAPI an interface.
+
+## **Installation Instructions**
+### **System Requirements:**
+- Android device with an internet connection
+
+### **Installation:**
+1. Allow your browser to install unknown apps. For additional help on this, follow these [instructions](https://www.lifewire.com/install-apk-on-android-4177185)
+1. Download the APK file from the APK folder
+3. Enjoy!
+
+### **Running the application**
+- Create an account to access user functionality.
+    - Type in a username and password and press create account
+    - To view admin, type in the following credentials
+        - Username: admin
+        - Password: pass
