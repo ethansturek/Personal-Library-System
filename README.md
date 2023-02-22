@@ -21,11 +21,6 @@ The library app will allow users and staff to interact with the library’s inve
 - ### **Review**
     Users can write reviews and rate books upon returning it. Users should be able to see reviews
     
-- ### **Recent Arrivals**
-    Users can view the list of recent New York Times Bestsellers books.
-    
-- ### **Nearby Libraries**
-    Users should be able to locate nearby libraries.
 
 ## **Iteration 1 Specifications and Limitations**
 - ### **Basic Login**
